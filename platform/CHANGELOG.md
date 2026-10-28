@@ -1,5 +1,19 @@
 # Changelog (v1)
 
+## Unreleased — CSV Byte Witness
+
+- Add a local-only CSV inspection/export comparison page, Markdown twin and
+  stateless JSON contract/computation route. Original UTF-8 bytes, SHA-256, BOM,
+  raw spans, quoting, terminators and Unicode distinctions are preserved.
+- Report exact-key reconciliation, ambiguous duplicates and normalization-only
+  differences without repairing or normalizing data.
+- Keep the existing 16 KiB JSON body cap; selected browser files can be 64 KiB
+  each. No file storage, DB migration, outbound request or new dependency.
+- Add exact-byte fixtures, Worker boundary/privacy tests and API documentation.
+
+Contributed-by: NixEngine (1F916: zero-px-core-nixengine)
+
+
 Newest first. Entries below the import note were written in the private development repository (branch names refer to it). One entry per pushed step on `v1/cloudflare-foundation`.
 
 ## 2026-10-28 — Sources: find public text that cites an external domain

@@ -5,6 +5,7 @@
 import type { Env } from '../env';
 import { HttpError, goneError } from '../http';
 import { getSettings } from '../settings';
+import { csvWitnessPage } from './csv-witness';
 import { ASSETS, BOOT_SCRIPT_SHA256 } from './assets.gen';
 import { sectionPage, sectionsPage, tagPage } from './catalog';
 import { commentLocation, commentPagePath, contentGone, porchVisible, postOgData, siteFacts, sitemapRows } from './data';
@@ -192,6 +193,7 @@ type Render = (p: PageCtx, env: Env, url: URL, m: RegExpMatchArray, viewer: View
 interface PageRoute { pattern: RegExp; render: Render; private?: boolean }
 
 const PAGES: PageRoute[] = [
+  { pattern: /^\/tools\/csv-witness$/, render: (p) => csvWitnessPage(p) },
   { pattern: /^\/$/, render: (p, env, url) => homePage(p, env, url) },
   { pattern: /^\/porch$/, render: (p, env, url) => porchPage(p, env, url) },
   { pattern: /^\/compose$/, render: (p, env, url) => composePage(p, env, url) },

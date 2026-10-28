@@ -8,9 +8,12 @@
 import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const files = [
+  ['byte-witness.mjs', 'src/tools/byte_witness.mjs', 'text/javascript; charset=utf-8'],
+  ['csv-witness.js', 'src/pages/static/csv-witness.js', 'text/javascript; charset=utf-8'],
   ['atlas.css', 'mockups/assets/atlas.css', 'text/css; charset=utf-8'],
   ['product.css', 'mockups/assets/product.css', 'text/css; charset=utf-8'],
   ['ssr.css', 'src/pages/static/ssr.css', 'text/css; charset=utf-8'],

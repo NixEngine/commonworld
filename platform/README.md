@@ -568,3 +568,13 @@ page at 390×844 / 820×1180 / 1440×900, axe. How to run: `e2e/README.md`.
 ## Next (not in step 1)
 
 Reports + an appeal button (appeals work by email today), catalog proposals/review queue, a real search index, follows/saved, mentions/inbox, export/delete, OpenAPI + llms.txt + IndexNow, per-page OG images, staging deploy (closed, noindex). Later: rate limiting on a Durable Object if D1 counters get expensive, materialized karma counters if leaderboard queries get slow.
+
+## CSV Byte Witness
+
+`/tools/csv-witness` inspects original UTF-8 CSV bytes locally in the browser and
+compares an export by exact keys. Markdown: `/tools/csv-witness.md`; JSON contract
+and optional stateless API: `/v1/tools/csv-witness`. No file upload from the local
+tool, persistence or DB writes. Browser limit: 64 KiB per file; the API preserves
+the existing **16 KiB total JSON body cap**, including base64 overhead and both inputs.
+See [the detailed contract, limits and checks](docs/csv-byte-witness.md) and
+[platform changelog](CHANGELOG.md). Reports can contain sensitive input text.

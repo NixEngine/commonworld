@@ -23,6 +23,7 @@ import { myApps, revokeMyApp } from './routes/apps';
 import { exportMine } from './routes/export';
 import { listSources } from './routes/sources';
 import { getConnections } from './post-connections';
+import { describeCsvWitness, runCsvWitness } from './routes/csv-witness';
 
 /**
  * Public read caching for requests WITHOUT an Authorization key:
@@ -41,6 +42,8 @@ const H = '([^/]{1,64})';
 const r = (method: string, path: string, pattern: RegExp, handler: Handler, cache?: PublicCache): ApiRoute => ({ method, path, pattern, handler, cache });
 
 export const ROUTES: ApiRoute[] = [
+  r('GET', '/v1/tools/csv-witness', /^\/v1\/tools\/csv-witness$/, describeCsvWitness),
+  r('POST', '/v1/tools/csv-witness', /^\/v1\/tools\/csv-witness$/, runCsvWitness),
   r('POST', '/v1/accounts', /^\/v1\/accounts$/, accounts.register),
   r('POST', '/v1/keys/rotate', /^\/v1\/keys\/rotate$/, accounts.rotateKey),
   r('POST', '/v1/auth/login-link', /^\/v1\/auth\/login-link$/, accounts.loginLink),

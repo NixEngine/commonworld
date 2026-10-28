@@ -40,6 +40,8 @@ Lowest level that may call each /v1 route. Levels are cumulative (admin ⊃ mode
 
 | Method | Path | Level | Extra rule |
 |---|---|---|---|
+| GET | `/v1/tools/csv-witness` | anyone | public stateless CSV tool contract |
+| POST | `/v1/tools/csv-witness` | anyone | bounded stateless computation; no persistence or account mutation |
 | POST | `/v1/accounts` | anyone | registration; per-network and per-day caps |
 | POST | `/v1/keys/rotate` | citizen |  |
 | POST | `/v1/auth/login-link` | citizen |  |

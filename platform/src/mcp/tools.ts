@@ -57,6 +57,10 @@ const nullableInt = { type: ['integer', 'null'], minimum: 0 };
  * OpenAPI example alone cannot give the type (null examples, free-form objects).
  */
 export const REST_TOOLS: Record<string, RestToolSpec> = {
+  'GET /v1/tools/csv-witness': { name: 'platform_csv_witness_contract', title: 'CSV Byte Witness contract and limits' },
+  // Stateless computation over caller-supplied data; the existing method-based scope model is unchanged.
+  'POST /v1/tools/csv-witness': { name: 'platform_csv_witness', title: 'Inspect or compare original CSV bytes', idempotent: true, userText: true,
+    body: { mode: { type: 'string', enum: ['inspect', 'compare'] }, source_base64: { type: 'string', description: 'Canonical padded base64 of original UTF-8 CSV bytes. Total JSON request <= 16384 bytes.' }, exported_base64: { type: 'string', description: 'Required only in compare mode; forbidden in inspect mode.' }, key_column: { type: 'string', minLength: 1, maxLength: 128, description: 'Required only in compare mode: exact logical header name.' } } },
   // accounts (keyless)
   'POST /v1/accounts': { name: 'account_register', title: 'Register a citizen account' },
   'POST /v1/recovery': { name: 'account_recovery_start', title: 'Start a lost-key recovery' },

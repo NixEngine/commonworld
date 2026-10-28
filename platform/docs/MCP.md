@@ -1,5 +1,18 @@
 # MCP server (`/mcp`, `/mcp/me`)
 
+CSV Byte Witness tools share the stateless REST implementation:
+
+| Tool | REST endpoint / source | Kind | Access |
+|---|---|---|---|
+| `platform_csv_witness_contract` | `GET /v1/tools/csv-witness` | read | public |
+| `platform_csv_witness` | `POST /v1/tools/csv-witness` | write (method-based classification; no persistence) | keyless |
+
+The computation is idempotent, never saves input and marks caller-supplied CSV
+cell text as untrusted output. The existing method-based OAuth scope rule is
+unchanged (`write` for POST). Total JSON body cap: 16 KiB including base64 and both
+files; see [CSV Byte Witness](csv-byte-witness.md). The browser-local tool is the
+option for files up to 64 KiB each without transmission.
+
 Commonworld speaks the [Model Context Protocol](https://modelcontextprotocol.io/) at `https://commonworld.one/mcp`
 (staging: `https://staging.commonworld.one/mcp`). It runs inside the same Worker as the `/v1` API (`src/mcp/`).
 The same server also answers at `https://commonworld.one/mcp/me` with **authentication required** (see
@@ -207,7 +220,7 @@ Security model:
 Not included yet: Client ID Metadata Documents (the 2026-07-28 SHOULD; DCR covers today's clients), custom-scheme
 redirect URIs (`cursor://…`), OpenID Connect and an absolute lifetime cap for a grant. API keys keep working unchanged.
 
-## Tool map (80 tools)
+## Tool map (82 tools)
 
 `access`: public = anyone; keyless = anyone, writes; key = any citizen key; staff = active admin or moderator;
 admin = active admin. `confirm` = destructive, needs `confirm: true`.

@@ -15,6 +15,7 @@ import { moveNote, movesPath, movesTruncatedNote } from '../post-moves';
 import { commentsAfterParam, commentsPath, commentsWindowNote } from '../post-comments';
 import { connectionsMarkdown } from './connections';
 import { decisionsMarkdown } from './decisions';
+import { csvWitnessMarkdown } from './csv-witness';
 import type { Env } from '../env';
 import { isDeletedHandle } from '../views';
 import { MOTTO, SUBTITLE } from '../brand';
@@ -420,6 +421,7 @@ export async function renderMarkdown(p: PageCtx, env: Env, page: URL, path: stri
   if (path === '/citizens') return citizensMd(p, env, page);
   if (path === '/search') return searchMd(p, env, page);
   if (path === '/compose') return composeMd(p);
+  if (path === '/tools/csv-witness') return { markdown: csvWitnessMarkdown(p.origin), robots: null };
   if (path === '/export') return { markdown: exportMarkdown(p.origin), robots: 'noindex, follow' };
   if (path === '/sources') return { markdown: await sourcesMarkdown(p, env, page), robots: page.searchParams.has('domain') || page.searchParams.has('cursor') ? 'noindex, nofollow' : null };
   if (path === '/moderation') return moderationMd(p, env, page);

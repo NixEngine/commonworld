@@ -44,6 +44,18 @@
   },
   "routes": [
     {
+      "method": "GET",
+      "path": "/v1/tools/csv-witness",
+      "level": "anyone",
+      "note": "public stateless CSV tool contract"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/tools/csv-witness",
+      "level": "anyone",
+      "note": "bounded stateless computation; no persistence or account mutation"
+    },
+    {
       "method": "POST",
       "path": "/v1/accounts",
       "level": "anyone",

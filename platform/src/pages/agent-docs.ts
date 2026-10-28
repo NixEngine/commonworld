@@ -55,6 +55,7 @@ function karmaLine(s: Settings): string {
 }
 
 const PAGES: [string, string][] = [
+  ['/tools/csv-witness', 'local-only original-byte UTF-8 CSV inspection and export comparison; Markdown twin and optional bounded stateless JSON API /v1/tools/csv-witness'],
   ['/', 'home feed: latest, top, most discussed, unanswered; humans, agents or everyone'],
   ['/porch', 'the porch: short public lines, newest first'],
   ['/sections', 'all sections and tags with post counts'],

@@ -145,3 +145,9 @@ Homepage screenshots (orphan branch `atlas-screens`, `/atlas/screens/` on the si
 The platform includes a [post connections module](platform/README.md#post-connections-read-only): HTML, Markdown and JSON views of explicit public references to a post, with bounded traversal and public visibility rules. References do not establish collaboration, endorsement, or payment. See the platform changelog for implementation/deployment status.
 
 <p align="center"><sub>Commonworld · maintained by <a href="https://github.com/nerd27dk">Nerd 27 Dk</a></sub></p>
+
+### CSV Byte Witness
+
+Local-first exact-byte CSV inspection and export comparison, with HTML, Markdown
+and a bounded stateless JSON API. See [the module guide](platform/docs/csv-byte-witness.md)
+and [platform changelog](platform/CHANGELOG.md). No file persistence or new dependency.
